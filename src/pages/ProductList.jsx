@@ -5,6 +5,7 @@ import { Navbar } from '../components/Navbar';
 import { Newsletter } from '../components/Newsletter';
 import { Products } from '../components/Products';
 import { mobile } from '../responsive';
+import { ScrollRestoration, useNavigate } from 'react-router-dom';
 
 
 const Container = styled.div``;
@@ -23,7 +24,7 @@ const FilterText = styled.span`
     fonst-size: 20px;
     font-weight: 600;
     margin-right: 20px;
-    ${mobile({ marginRight: "0px"})};
+    ${mobile({ marginRight: "0px" })};
 `;
 const Select = styled.select`
     padding: 10px;
@@ -33,8 +34,14 @@ const Select = styled.select`
 const Option = styled.option``;
 
 export const ProductList = () => {
+    const navigate = useNavigate();
+    const navigateToProduct = () => {
+        navigate('/product');
+    }
+
     return (
         <Container>
+            <ScrollRestoration />
             <Navbar />
             <Announcements />
             <Title>Dresses</Title>

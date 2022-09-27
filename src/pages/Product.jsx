@@ -1,4 +1,5 @@
 import { Add, Remove } from '@material-ui/icons';
+import { ScrollRestoration } from 'react-router-dom';
 import styled from 'styled-components'
 import { Announcements } from '../components/Announcements';
 import { Footer } from '../components/Footer';
@@ -104,6 +105,7 @@ const Button = styled.button`
 export const Product = () => {
     return (
         <Container>
+            <ScrollRestoration />
             <Navbar />
             <Announcements />
             <Wrapper>
