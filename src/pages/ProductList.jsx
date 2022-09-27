@@ -6,6 +6,7 @@ import { Newsletter } from '../components/Newsletter';
 import { Products } from '../components/Products';
 import { mobile } from '../responsive';
 import { ScrollRestoration, useNavigate } from 'react-router-dom';
+import { Navbar2 } from '../components/Navbar2'
 
 
 const Container = styled.div``;
@@ -42,7 +43,7 @@ export const ProductList = () => {
     return (
         <Container>
             <ScrollRestoration />
-            <Navbar />
+            <Navbar2 />
             <Announcements />
             <Title>Dresses</Title>
             <FilterContainer>

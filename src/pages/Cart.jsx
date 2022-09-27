@@ -4,6 +4,7 @@ import { Announcements } from '../components/Announcements'
 import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
 import {mobile} from '../responsive'
+import { Navbar2 } from '../components/Navbar2'
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -148,7 +149,7 @@ const Button = styled.button`
 export const Cart = () => {
     return (
         <Container>
-            <Navbar />
+            <Navbar2 />
             <Announcements />
             <Wrapper>
                 <Title>Your bag</Title>

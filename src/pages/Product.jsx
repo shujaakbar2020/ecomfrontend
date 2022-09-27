@@ -6,6 +6,7 @@ import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
 import { Newsletter } from '../components/Newsletter';
 import { mobile } from '../responsive';
+import { Navbar2 } from '../components/Navbar2'
 
 
 const Container = styled.div``;
@@ -106,7 +107,7 @@ export const Product = () => {
     return (
         <Container>
             <ScrollRestoration />
-            <Navbar />
+            <Navbar2 />
             <Announcements />
             <Wrapper>
                 <ImgContainer>
