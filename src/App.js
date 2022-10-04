@@ -1,39 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './index.css';
 import { Home } from './pages/Home';
-import { ProductList } from './pages/ProductList';
-import { Product } from './pages/Product';
-import { Register } from './pages/Register';
 import { Login } from './pages/Login';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ProductList } from './pages/ProductList';
+import { Register } from './pages/Register';
 import { Cart } from './pages/Cart';
-import { Navbar } from './components/Navbar';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Product } from './pages/Product';
 
 function App() {
   return (
-    // <Router>
-    //   <Switch>
-    //     <Route path='/'>
-    //       <Home />
-    //     </Route>
-    //     <Route path='/products/'>
-    //       <ProductList />
-    //     </Route>
-    //     <Route path='/product/'>
-    //       <Product />
-    //     </Route>
-    //     <Route path='/register/'>
-    //       <Register />
-    //     </Route>
-    //     <Route path='/login/'>
-    //       <Login />
-    //     </Route>
-    //     <Route path='/cart/'>
-    //       <Cart />
-    //     </Route>
-    //   </Switch>
-    // </Router>
-    <></>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/'>
+          <Route index element={<Home />} />
+          <Route path='products'>
+            <Route index element={<ProductList />} />
+            <Route path=':id' element={<Product />} />
+          </Route>
+          <Route path='cart'>
+            <Route index element={<Cart />} />
+          </Route>
+          <Route path='account'>
+            <Route path='login' element={<Login />} />
+            <Route path='register' element={<Register />} />
+          </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

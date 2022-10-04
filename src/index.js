@@ -21,7 +21,7 @@ const home = createBrowserRouter([
     element: <ProductList />
   },
   {
-    path: '/product',
+    path: '/product/:id',
     element: <Product />
   },
   {
@@ -41,11 +41,12 @@ const home = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={home} />
+    {/* <RouterProvider router={home} /> */}
+    <App />
   </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();

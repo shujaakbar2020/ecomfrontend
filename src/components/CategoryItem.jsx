@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mobile } from '../responsive';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -41,18 +41,20 @@ const Button = styled.button`
   border-radius: 40px;
 `;
 
-export const CategoryItem = ({item}) => {
+export const CategoryItem = ({ item }) => {
   const navigate = useNavigate();
   const navigateToProducts = () => {
     navigate('/products');
   }
   return (
-    <Container onClick={navigateToProducts}>
-      <Image src={item.img}/>
-      <Info>
-        <Title>{item.title}</Title>
-        <Button>SHOP NOW</Button>
-      </Info>
+    <Container>
+      <Link to={`/products`}>
+        <Image src={item.img} />
+        <Info>
+          <Title>{item.title}</Title>
+          <Button>SHOP NOW</Button>
+        </Info>
+      </Link>
     </Container>
   )
 }

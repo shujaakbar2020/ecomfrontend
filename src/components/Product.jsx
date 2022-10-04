@@ -60,22 +60,23 @@ const Icon = styled.div`
     }
 `;
 
-export const Product = ({item}) => {
-  return (
-    <Container>
-        <Circle></Circle>
-        <Image src={item.image[0]} />
-        <Info>
-            <Icon>
-                <ShoppingCartOutlined />
-            </Icon>
-            <Icon>
-                <SearchOutlined />
-            </Icon>
-            <Icon>
-                <FavoriteBorderOutlined />
-            </Icon>
-        </Info>
-    </Container>
-  )
+export const Product = ({ item }) => {
+    return (
+        <Container>
+            <Circle></Circle>
+            <Image src={item.image[0]} />
+            <Info>
+                <Icon>
+                    <ShoppingCartOutlined />
+                </Icon>
+                <Icon>
+                    <SearchOutlined />
+                </Icon>
+                <Icon>
+                    <FavoriteBorderOutlined />
+                </Icon>
+            </Info>
+            {/* </Link> */}
+        </Container>
+    )
 }

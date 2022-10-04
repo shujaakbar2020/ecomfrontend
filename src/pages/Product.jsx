@@ -1,5 +1,5 @@
 import { Add, Remove } from '@material-ui/icons';
-import { ScrollRestoration } from 'react-router-dom';
+import { ScrollRestoration, useParams } from 'react-router-dom';
 import styled from 'styled-components'
 import { Announcements } from '../components/Announcements';
 import { Footer } from '../components/Footer';
@@ -7,6 +7,8 @@ import { Navbar } from '../components/Navbar';
 import { Newsletter } from '../components/Newsletter';
 import { mobile } from '../responsive';
 import { Navbar2 } from '../components/Navbar2'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 const Container = styled.div``;
@@ -59,7 +61,7 @@ const FilterColor = styled.div`
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: ${(props)=>props.color};
+    background-color: ${(props) => props.color};
     margin: 0px 5px;
     cursor: pointer;
 `;
@@ -104,25 +106,33 @@ const Button = styled.button`
 `;
 
 export const Product = () => {
+    const { id } = useParams();
+    const [prods, setProds] = useState([]);
+    const [img, setImg] = useState()
+    useEffect(() => {
+        axios
+            .get(`http://192.168.0.101/products/detail/${id}/`)
+            .then((response) => {
+                setProds(response.data)
+                setImg(response.data.image[0])
+            })
+    }, [])
     return (
         <Container>
-            <ScrollRestoration />
+
+            {/* <ScrollRestoration /> */}
             <Navbar2 />
             <Announcements />
             <Wrapper>
                 <ImgContainer>
-                    <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+                    <Image src={img} alt='something here' />
                 </ImgContainer>
                 <InfoContainer>
-                    <Title>Denim Jumpsuit</Title>
+                    <Title>{prods.name}</Title>
                     <Desc>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                        venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-                        iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-                        tristique tortor pretium ut. Curabitur elit justo, consequat id
-                        condimentum ac, volutpat ornare.
+                        {prods.description}
                     </Desc>
-                    <Price>$ 20</Price>
+                    <Price>$ {prods.price}</Price>
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>

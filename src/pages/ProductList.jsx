@@ -5,7 +5,7 @@ import { Navbar } from '../components/Navbar';
 import { Newsletter } from '../components/Newsletter';
 import { Products } from '../components/Products';
 import { mobile } from '../responsive';
-import { ScrollRestoration, useNavigate } from 'react-router-dom';
+import { ScrollRestoration } from 'react-router-dom';
 import { Navbar2 } from '../components/Navbar2'
 
 
@@ -35,14 +35,9 @@ const Select = styled.select`
 const Option = styled.option``;
 
 export const ProductList = () => {
-    const navigate = useNavigate();
-    const navigateToProduct = () => {
-        navigate('/product');
-    }
-
     return (
         <Container>
-            <ScrollRestoration />
+            {/* <ScrollRestoration /> */}
             <Navbar2 />
             <Announcements />
             <Title>Dresses</Title>
@@ -77,7 +72,7 @@ export const ProductList = () => {
                 </Filter>
             </FilterContainer>
             <Products />
-            <Newsletter />
+            {/* <Newsletter /> */}
             <Footer />
         </Container>
     )

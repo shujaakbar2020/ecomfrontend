@@ -15,6 +15,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { ShoppingCart } from '@material-ui/icons';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -87,6 +88,7 @@ export function Navbar2() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const navigate = useNavigate();
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -104,6 +106,10 @@ export function Navbar2() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  const navigateToHome = () => {
+    navigate('/');
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -174,7 +180,7 @@ export function Navbar2() {
           >
             <MenuIcon />
           </IconButton> */}
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title} variant="h6" noWrap onClick={() => navigate("/")}>
             LAMA.
           </Typography>
           <div className={classes.search}>
@@ -202,7 +208,7 @@ export function Navbar2() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show cart items" color="inherit">
+            <IconButton aria-label="show cart items" color="inherit" >
               <Badge badgeContent={3} color="secondary">
                 <ShoppingCart />
               </Badge>
