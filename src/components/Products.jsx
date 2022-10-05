@@ -27,7 +27,7 @@ export const Products = () => {
   const [page, setPage] = useState(0)
 
   useEffect(() => {
-    const url = `http://192.168.0.101/products/?limit=10&offset=${page * 10}`
+    const url = `${process.env.REACT_APP_API_SERVER}products/?limit=10&offset=${page * 10}`
     // setPage(1)
     fetch(url, { method: "GET" })
       .then((response) => response.json())

@@ -111,7 +111,7 @@ export const Product = () => {
     const [img, setImg] = useState()
     useEffect(() => {
         axios
-            .get(`http://192.168.0.101/products/detail/${id}/`)
+            .get(`${process.env.REACT_APP_API_SERVER}products/detail/${id}/`)
             .then((response) => {
                 setProds(response.data)
                 setImg(response.data.image[0])

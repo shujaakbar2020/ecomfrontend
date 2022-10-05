@@ -9,6 +9,7 @@ import { Cart } from './pages/Cart';
 import { Product } from './pages/Product';
 
 function App() {
+  console.log(process.env);
   return (
     <BrowserRouter>
       <Routes>
